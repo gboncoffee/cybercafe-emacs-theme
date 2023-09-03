@@ -182,7 +182,23 @@
    `(tuareg-font-lock-governing-face ((t (:foreground ,cybercafe-fg :bold t))))
    `(tuareg-font-lock-multistage-face
      ((t (:background ,cybercafe-alt-bg :foreground ,cybercafe-fg))))
-   `(tuareg-font-lock-operator-face ((t (:foreground ,cybercafe-fg :bold t))))))
+   `(tuareg-font-lock-operator-face ((t (:foreground ,cybercafe-fg :bold t))))
+
+   ;; latex
+   `(font-latex-bold-face ((t (:foreground ,cybercafe-fg :bold t))))
+   `(font-latex-italic-face ((t (:foreground ,cybercafe-fg :italic t))))
+   `(font-latex-math-face ((t (:foreground ,cybercafe-green))))
+   `(font-latex-script-char-face ((t (:foreground ,cybercafe-alt-fg))))
+   `(font-latex-sectioning-0-face ((t (:foreground ,cybercafe-fg :bold t))))
+   `(font-latex-sectioning-1-face ((t (:foreground ,cybercafe-fg :bold t))))
+   `(font-latex-sectioning-2-face ((t (:foreground ,cybercafe-fg :bold t))))
+   `(font-latex-sectioning-3-face ((t (:foreground ,cybercafe-fg :bold t))))
+   `(font-latex-sectioning-4-face ((t (:foreground ,cybercafe-fg :bold t))))
+   `(font-latex-sectioning-5-face ((t (:foreground ,cybercafe-fg :bold t))))
+   `(font-latex-string-face ((t (:foreground ,cybercafe-fg :italic t))))
+   `(font-latex-underline-face ((t (:foreground ,cybercafe-fg :underline t))))
+   `(font-latex-verbatim-face ((t (:foreground ,cybercafe-fg :italic t))))
+   `(font-latex-warning-face ((t (:foreground ,cybercafe-yellow))))))
 
 ;; ;;;###autoload
 (when load-file-name
