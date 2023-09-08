@@ -6,7 +6,7 @@
 ;; URL: http://github.com/gboncoffee/cybercafe-emacs-theme
 ;; Keywords: faces
 ;; Package-Requires: ((emacs "24.1"))
-;; Version: 0.1
+;; Version: 0.1.1
 
 ;; Permission is hereby granted, free of charge, to any person obtaining a copy
 ;; of this software and associated documentation files (the "Software"), to deal
@@ -127,7 +127,7 @@
    `(diff-removed
      ((t (:background ,cybercafe-red :foreground ,cybercafe-bg))))
    `(diff-error
-     ((t (:foreground ,cybercafe-red :foreground ,cybercafe-bg))))
+     ((t (:background ,cybercafe-red :foreground ,cybercafe-bg))))
    `(diff-file-header
      ((t (:background ,cybercafe-bg :foreground ,cybercafe-fg))))
    `(diff-header
@@ -145,7 +145,7 @@
    `(magit-diff-removed-highlight
      ((t (:background ,cybercafe-red :foreground ,cybercafe-bg))))
    `(magit-diff-error-highlight
-     ((t (:foreground ,cybercafe-red :foreground ,cybercafe-bg))))
+     ((t (:background ,cybercafe-red :foreground ,cybercafe-bg))))
    `(magit-diff-file-header-highlight
      ((t (:background ,cybercafe-bg :foreground ,cybercafe-fg))))
    `(magit-diff-header-highlight
@@ -154,6 +154,24 @@
      ((t (:background ,cybercafe-alt-bg :foreground ,cybercafe-fg))))
    `(magit-diff-index-highlight
      ((t (:background ,cybercafe-alt-bg :foreground ,cybercafe-fg))))
+
+   `(magit-diff-added
+     ((t (:background ,cybercafe-green :foreground ,cybercafe-bg))))
+   `(magit-diff-changed
+     ((t (:background ,cybercafe-yellow :foreground ,cybercafe-bg))))
+   `(magit-diff-removed
+     ((t (:background ,cybercafe-red :foreground ,cybercafe-bg))))
+   `(magit-diff-error
+     ((t (:background ,cybercafe-red :foreground ,cybercafe-bg))))
+   `(magit-diff-file-header
+     ((t (:background ,cybercafe-bg :foreground ,cybercafe-fg))))
+   `(magit-diff-header
+     ((t (:background ,cybercafe-bg :foreground ,cybercafe-fg))))
+   `(magit-diff-hunk-header
+     ((t (:background ,cybercafe-alt-bg :foreground ,cybercafe-fg))))
+   `(magit-diff-index
+     ((t (:background ,cybercafe-alt-bg :foreground ,cybercafe-fg))))
+
    `(magit-section-highlight ((t (:background ,cybercafe-alt-bg))))
    `(magit-branch-current ((t (:foreground ,cybercafe-alt-fg :bold t))))
    `(magit-branch-local ((t (:foreground ,cybercafe-alt-fg))))
