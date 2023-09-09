@@ -6,7 +6,7 @@
 ;; URL: http://github.com/gboncoffee/cybercafe-emacs-theme
 ;; Keywords: faces
 ;; Package-Requires: ((emacs "24.1"))
-;; Version: 0.1.1
+;; Version: 0.2.0
 
 ;; Permission is hereby granted, free of charge, to any person obtaining a copy
 ;; of this software and associated documentation files (the "Software"), to deal
@@ -34,6 +34,9 @@
 (deftheme cybercafe
   "Cybercafe: almost colorless, white-on-black theme.")
 
+(if (not (boundp 'cybercafe-cyberpunk))
+    (setq cybercafe-cyberpunk nil))
+
 (let ((cybercafe-fg "#f0f0f0")
       (cybercafe-alt-fg "#bbbbbb")
       (cybercafe-bg "#000000")
@@ -53,7 +56,9 @@
    `(default ((t (:background ,cybercafe-bg :foreground ,cybercafe-fg))))
    `(error ((t :background ,cybercafe-red :foreground ,cybercafe-bg)))
    `(warning ((t :background ,cybercafe-yellow :foreground ,cybercafe-bg)))
-   `(match ((t :background ,cybercafe-yellow :foreground ,cybercafe-bg)))
+   `(match
+     ((t :background ,(if cybercafe-cyberpunk cybercafe-green cybercafe-yellow)
+	 :foreground ,cybercafe-bg)))
    `(region ((t :background ,cybercafe-alt-bg)))
    '(bold ((t :bold t)))
    '(italic ((t (:slant italic))))
@@ -67,7 +72,9 @@
 	 :bold t
 	 :italic t)))
    `(minibuffer-prompt ((t :foreground ,cybercafe-fg)))
-   `(highlight ((t (:background ,cybercafe-yellow :foreground ,cybercafe-bg))))
+   `(highlight
+     ((t :background ,(if cybercafe-cyberpunk cybercafe-green cybercafe-yellow)
+	 :foreground ,cybercafe-bg)))
    `(isearch ((t (:background ,cybercafe-yellow :foreground ,cybercafe-bg))))
    `(lazy-highlight
      ((t (:background ,cybercafe-green :foreground ,cybercafe-bg))))
@@ -90,23 +97,30 @@
 
    ;; mode line
    `(mode-line
-     ((t (:background ,cybercafe-alt-fg :foreground ,cybercafe-bg))))
+     ((t :background ,(if cybercafe-cyberpunk cybercafe-green cybercafe-alt-fg)
+	 :foreground ,cybercafe-bg)))
    `(mode-line-highlight
-     ((t (:background ,cybercafe-alt-fg :foreground ,cybercafe-bg))))
+     ((t :background ,(if cybercafe-cyberpunk cybercafe-green cybercafe-alt-fg)
+	 :foreground ,cybercafe-bg)))
    `(mode-line-inactive
-     ((t (:background ,cybercafe-alt-bg :foreground ,cybercafe-alt-fg))))
+     ((t :background ,(if cybercafe-cyberpunk cybercafe-bg cybercafe-alt-bg)
+	 :foreground ,cybercafe-alt-fg)))
 
    ;; show paren
    `(show-paren-mismatch
-     ((t (:background ,cybercafe-alt-fg :foreground ,cybercafe-bg))))
+     ((t :background ,(if cybercafe-cyberpunk cybercafe-green cybercafe-alt-fg)
+	 :foreground ,cybercafe-bg)))
    `(show-paren-match
-     ((t (:background ,cybercafe-alt-fg :foreground ,cybercafe-bg))))
+     ((t :background ,(if cybercafe-cyberpunk cybercafe-green cybercafe-alt-fg)
+	 :foreground ,cybercafe-bg)))
 
    ;; ido
    `(ido-first-match
-     ((t (:foreground ,cybercafe-yellow :background ,cybercafe-bg :bold t))))
+     ((t :foreground ,(if cybercafe-cyberpunk cybercafe-green cybercafe-yellow)
+	 :background ,cybercafe-bg :bold t)))
    `(ido-only-match
-     ((t (:foreground ,cybercafe-yellow :background ,cybercafe-bg :bold t))))
+     ((t :foreground ,(if cybercafe-cyberpunk cybercafe-green cybercafe-yellow)
+	 :background ,cybercafe-bg :bold t)))
    `(ido-subdir
      ((t (:foreground ,cybercafe-blue :background ,cybercafe-bg :bold t))))
 
@@ -178,8 +192,12 @@
    `(magit-branch-remote ((t (:foreground ,cybercafe-alt-fg))))
    `(magit-branch-remote-head ((t (:foreground ,cybercafe-alt-fg))))
    `(magit-branch-upstream ((t (:foreground ,cybercafe-alt-fg))))
-   `(magit-branch-warning ((t (:foreground ,cybercafe-yellow))))
-   `(magit-section-heading ((t (:foreground ,cybercafe-yellow))))
+   `(magit-branch-warning
+     ((t :foreground
+	 ,(if cybercafe-cyberpunk cybercafe-green cybercafe-yellow))))
+   `(magit-section-heading
+     ((t :foreground
+	 ,(if cybercafe-cyberpunk cybercafe-green cybercafe-yellow))))
 
    ;; org
    `(org-level-1 ((t (:inherit outline-1 :extend nil :height 1.3))))
