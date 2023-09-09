@@ -6,7 +6,7 @@
 ;; URL: http://github.com/gboncoffee/cybercafe-emacs-theme
 ;; Keywords: faces
 ;; Package-Requires: ((emacs "24.1"))
-;; Version: 0.2.0
+;; Version: 0.3.0
 
 ;; Permission is hereby granted, free of charge, to any person obtaining a copy
 ;; of this software and associated documentation files (the "Software"), to deal
@@ -97,14 +97,65 @@
 
    ;; mode line
    `(mode-line
-     ((t :background ,(if cybercafe-cyberpunk cybercafe-green cybercafe-alt-fg)
-	 :foreground ,cybercafe-bg)))
+     ((t :background
+	 ,(if (and (boundp doom-modeline-mode) doom-modeline-mode)
+	      cybercafe-alt-bg
+	    (if cybercafe-cyberpunk cybercafe-green cybercafe-alt-fg))
+	 :foreground
+	 ,(if (and (boundp doom-modeline-mode) doom-modeline-mode)
+	      cybercafe-fg
+	    cybercafe-bg))))
    `(mode-line-highlight
-     ((t :background ,(if cybercafe-cyberpunk cybercafe-green cybercafe-alt-fg)
-	 :foreground ,cybercafe-bg)))
+     ((t :background
+	 ,(if (and (boundp doom-modeline-mode) doom-modeline-mode)
+	      cybercafe-alt-bg
+	    (if cybercafe-cyberpunk cybercafe-green cybercafe-alt-fg))
+	 :foreground
+	 ,(if (and (boundp doom-modeline-mode) doom-modeline-mode)
+	      cybercafe-fg
+	    cybercafe-bg))))
    `(mode-line-inactive
-     ((t :background ,(if cybercafe-cyberpunk cybercafe-bg cybercafe-alt-bg)
+     ((t :background
+	 ,(if
+	      (or cybercafe-cyberpunk
+		  (and (boundp doom-modeline-mode) doom-modeline-mode))
+	      cybercafe-bg
+	    cybercafe-alt-bg)
 	 :foreground ,cybercafe-alt-fg)))
+   `(doom-modeline-bar
+     ((t :background ,cybercafe-alt-bg :foreground ,cybercafe-fg)))
+   `(doom-modeline-buffer-file
+     ((t :background ,cybercafe-alt-bg :foreground ,cybercafe-fg :bold t)))
+   `(doom-modeline-buffer-major-mode
+     ((t :background ,cybercafe-alt-bg :foreground ,cybercafe-fg :bold t)))
+   `(doom-modeline-buffer-minor-mode
+     ((t :background ,cybercafe-alt-bg :foreground ,cybercafe-alt-fg)))
+   `(doom-modeline-buffer-modified
+     ((t :background ,cybercafe-alt-bg :foreground ,cybercafe-fg :bold t)))
+   `(doom-modeline-buffer-path
+     ((t :background ,cybercafe-alt-bg :foreground ,cybercafe-alt-fg)))
+   `(doom-modeline-buffer-project-root
+     ((t :background ,cybercafe-alt-bg :foreground ,cybercafe-alt-fg)))
+   `(doom-modeline-debug
+     ((t :background ,cybercafe-alt-bg :foreground ,cybercafe-yellow)))
+   `(doom-modeline-evil-insert-state
+     ((t :background ,cybercafe-alt-bg :foreground ,cybercafe-yellow)))
+   `(doom-modeline-evil-visual-state
+     ((t :background ,cybercafe-alt-bg :foreground ,cybercafe-green)))
+   `(doom-modeline-info
+     ((t :background ,cybercafe-alt-bg :foreground ,cybercafe-green)))
+   `(doom-modeline-lsp-success
+     ((t :background ,cybercafe-alt-bg :foreground ,cybercafe-green)))
+   `(doom-modeline-persp-name
+     ((t :background ,cybercafe-alt-bg :foreground ,cybercafe-alt-fg)))
+   `(doom-modeline-project-dir
+     ((t :background ,cybercafe-alt-bg :foreground ,cybercafe-alt-fg)))
+   `(doom-modeline-project-parent-dir
+     ((t :background ,cybercafe-alt-bg :foreground ,cybercafe-alt-fg)))
+   `(doom-modeline-urgent
+     ((t :background ,cybercafe-alt-bg :foreground ,cybercafe-red)))
+   `(doom-modeline-warning
+     ((t :background ,cybercafe-alt-bg :foreground ,cybercafe-yellow)))
 
    ;; show paren
    `(show-paren-mismatch

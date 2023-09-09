@@ -22,3 +22,4 @@ for other modes. Most should work just with the `font-lock` support tho.
 - Org  
 - Markdown  
 - Tuareg  
+- Doom Modeline  
