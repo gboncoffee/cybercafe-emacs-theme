@@ -6,7 +6,7 @@
 ;; URL: http://github.com/gboncoffee/cybercafe-emacs-theme
 ;; Keywords: faces
 ;; Package-Requires: ((emacs "24.1"))
-;; Version: 0.3.0
+;; Version: 0.3.1
 
 ;; Permission is hereby granted, free of charge, to any person obtaining a copy
 ;; of this software and associated documentation files (the "Software"), to deal
@@ -34,8 +34,17 @@
 (deftheme cybercafe
   "Cybercafe: almost colorless, white-on-black theme.")
 
-(if (not (boundp 'cybercafe-cyberpunk))
-    (setq cybercafe-cyberpunk nil))
+(defgroup cybercafe nil
+  "A white-on-black, almost-colorless theme."
+  :prefix "cybercafe-"
+  :link '(url-link :tag "Source code"
+                   "https://github.com/gboncoffee/cybercafe-emacs-theme")
+  :group 'faces)
+
+(defcustom cybercafe-cyberpunk nil
+  "If t, uses more green in UI."
+  :type 'boolean
+  :group 'cybercafe)
 
 (let ((cybercafe-fg "#f0f0f0")
       (cybercafe-alt-fg "#bbbbbb")
@@ -44,7 +53,8 @@
       (cybercafe-red "#ee0000")
       (cybercafe-green "#00ee00")
       (cybercafe-blue "#5c5cff")
-      (cybercafe-yellow "#eeee00"))
+      (cybercafe-yellow "#eeee00")
+      (has-doom-modeline (bound-and-true-p doom-modeline-mode)))
   (custom-theme-set-variables
    'cybercafe
    '(frame-background-mode (quote dark)))
@@ -98,27 +108,27 @@
    ;; mode line
    `(mode-line
      ((t :background
-	 ,(if (and (boundp doom-modeline-mode) doom-modeline-mode)
+	 ,(if has-doom-modeline
 	      cybercafe-alt-bg
 	    (if cybercafe-cyberpunk cybercafe-green cybercafe-alt-fg))
 	 :foreground
-	 ,(if (and (boundp doom-modeline-mode) doom-modeline-mode)
+	 ,(if has-doom-modeline
 	      cybercafe-fg
 	    cybercafe-bg))))
    `(mode-line-highlight
      ((t :background
-	 ,(if (and (boundp doom-modeline-mode) doom-modeline-mode)
+	 ,(if has-doom-modeline
 	      cybercafe-alt-bg
 	    (if cybercafe-cyberpunk cybercafe-green cybercafe-alt-fg))
 	 :foreground
-	 ,(if (and (boundp doom-modeline-mode) doom-modeline-mode)
+	 ,(if has-doom-modeline
 	      cybercafe-fg
 	    cybercafe-bg))))
    `(mode-line-inactive
      ((t :background
 	 ,(if
 	      (or cybercafe-cyberpunk
-		  (and (boundp doom-modeline-mode) doom-modeline-mode))
+		  has-doom-modeline)
 	      cybercafe-bg
 	    cybercafe-alt-bg)
 	 :foreground ,cybercafe-alt-fg)))
