@@ -6,7 +6,7 @@
 ;; URL: http://github.com/gboncoffee/cybercafe-emacs-theme
 ;; Keywords: faces
 ;; Package-Requires: ((emacs "24.1"))
-;; Version: 0.3.1
+;; Version: 0.3.2
 
 ;; Permission is hereby granted, free of charge, to any person obtaining a copy
 ;; of this software and associated documentation files (the "Software"), to deal
@@ -46,9 +46,14 @@
   :type 'boolean
   :group 'cybercafe)
 
-(let ((cybercafe-fg "#f0f0f0")
+(defcustom cybercafe-soft nil
+  "If t, Uses a slightly lighter background."
+  :type 'boolean
+  :group 'cybercafe)
+
+(let ((cybercafe-fg (if cybercafe-soft "#f8f8f8" "#f0f0f0"))
       (cybercafe-alt-fg "#bbbbbb")
-      (cybercafe-bg "#000000")
+      (cybercafe-bg (if cybercafe-soft "#202020" "#000000"))
       (cybercafe-alt-bg "#444444")
       (cybercafe-red "#ee0000")
       (cybercafe-green "#00ee00")
@@ -95,11 +100,11 @@
    ;; font-lock
    `(font-lock-comment-face ((t (:foreground ,cybercafe-alt-fg :italic t))))
    `(font-lock-constant-face ((t (:foreground ,cybercafe-fg))))
-   `(font-lock-function-name-face ((t (:foreground ,cybercafe-fg :bold t))))
-   `(font-lock-keyword-face ((t (:foreground ,cybercafe-fg :bold t))))
+   `(font-lock-function-name-face ((t (:foreground ,cybercafe-fg))))
+   `(font-lock-keyword-face ((t (:foreground ,cybercafe-fg))))
    `(font-lock-negation-char-face ((t (:foreground ,cybercafe-fg))))
    `(font-lock-string-face ((t (:foreground ,cybercafe-alt-fg))))
-   `(font-lock-type-face ((t (:foreground ,cybercafe-fg :bold t))))
+   `(font-lock-type-face ((t (:foreground ,cybercafe-fg))))
    `(font-lock-variable-name-face ((t (:foreground ,cybercafe-fg))))
    `(font-lock-warning-face ((t (:foreground ,cybercafe-yellow))))
    `(font-lock-preprocessor-face ((t (:foreground ,cybercafe-fg))))

@@ -23,9 +23,10 @@ and running `package-install-from-buffer`. Them `use-package` will just works:
 
 ## Customizing
 
-Currently there's only a single customizable option: if you set the variable
+Currently there's two customizable options: if you set the variable
 `cybercafe-cyberpunk` to non-nil before applying the theme, more green will be
-used to UI components.
+used to UI components. And if you set `cybercafe-soft`, a slighter lighter
+background will be used.
 
 ## Compatibility
 
