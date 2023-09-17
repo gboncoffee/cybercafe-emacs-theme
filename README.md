@@ -5,21 +5,8 @@ distraction-less programming, knowing that syntax highlight is overrated.
 
 ![screenshot](screenshot.png)
 
-## Installation
 
-I have a [melpa recipe](https://github.com/melpa/melpa/pull/8717) pull-requested
-but it probably won't be merged.
-
-Personally I like to manually install it opening the `cybercafe-theme.el` file
-and running `package-install-from-buffer`. Them `use-package` will just works:
-
-```elisp
-(use-package cybercafe-theme
-  :config
-  (setq cybercafe-cyberpunk nil) ;; set this to `t` to use more
-                                 ;; green. Personally I like it!
-  (load-theme 'cybercafe t))
-```
+Install it from melpa: `cybercafe-theme`.
 
 ## Customizing
 
