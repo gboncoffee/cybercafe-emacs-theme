@@ -60,11 +60,11 @@
        (if cybercafe-light "#000000" (if cybercafe-soft "#f8f8f8" "#f0f0f0")))
       (cybercafe-alt-fg (if cybercafe-light "#202020" "#bbbbbb"))
       (cybercafe-bg
-       (if cybercafe-light "#f0f0f0" (if cybercafe-soft "#202020" "#000000")))
+       (if cybercafe-light "#ffffeb" (if cybercafe-soft "#202020" "#000000")))
       (cybercafe-alt-bg (if cybercafe-light "#bbbbbb" "#444444"))
-      (cybercafe-red (if cybercafe-light "#cc0000" "#ee0000"))
-      (cybercafe-green (if cybercafe-light "#00cc00" "#00ee00"))
-      (cybercafe-blue (if cybercafe-light "#3464A3" "#5c5cff"))
+      (cybercafe-red (if cybercafe-light "#880000" "#cc0000"))
+      (cybercafe-green (if cybercafe-light "#005500" "#00cc00"))
+      (cybercafe-blue (if cybercafe-light "#1054af" "#5c5cff"))
       (cybercafe-yellow (if cybercafe-light "#c07000" "#eeee00"))
       (has-doom-modeline (bound-and-true-p doom-modeline-mode)))
   (custom-theme-set-variables
@@ -107,18 +107,17 @@
    ;; font-lock
    `(font-lock-comment-face
      ((t (:foreground
-	  ,(if cybercafe-light cybercafe-yellow cybercafe-alt-fg) :italic t))))
+	  ,(if cybercafe-light cybercafe-red cybercafe-alt-fg) :italic t))))
    `(font-lock-constant-face ((t (:foreground ,cybercafe-fg))))
    `(font-lock-function-name-face ((t (:foreground ,cybercafe-fg))))
    `(font-lock-keyword-face ((t (:foreground ,cybercafe-fg))))
    `(font-lock-negation-char-face ((t (:foreground ,cybercafe-fg))))
    `(font-lock-string-face
      ((t (:foreground
-	  ,(if cybercafe-light cybercafe-yellow cybercafe-alt-fg)))))
+	  ,(if cybercafe-light cybercafe-red cybercafe-alt-fg)))))
    `(font-lock-type-face ((t (:foreground ,cybercafe-fg))))
    `(font-lock-variable-name-face ((t (:foreground ,cybercafe-fg))))
-   `(font-lock-warning-face
-     ((t (:foreground ,(if cybercafe-light cybercafe-red cybercafe-yellow)))))
+   `(font-lock-warning-face ((t (:foreground ,cybercafe-yellow))))
    `(font-lock-preprocessor-face ((t (:foreground ,cybercafe-fg))))
    `(font-lock-builtin-face ((t (:foreground ,cybercafe-fg))))
 
@@ -189,7 +188,9 @@
      ((t :background ,(if cybercafe-cyberpunk cybercafe-green cybercafe-alt-fg)
 	 :foreground ,cybercafe-bg)))
    `(show-paren-match
-     ((t :background ,(if cybercafe-cyberpunk cybercafe-green cybercafe-alt-fg)
+     ((t :background
+	 ,(if cybercafe-light cybercafe-alt-bg
+	    (if cybercafe-cyberpunk cybercafe-green cybercafe-alt-fg))
 	 :foreground ,cybercafe-bg)))
 
    ;; ido
